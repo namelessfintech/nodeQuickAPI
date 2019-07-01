@@ -8,8 +8,8 @@ const app = express()
 const port = 3000
 
 // set the root route
+// send back message hello world
 app.get("/",(req,res)=>{
-    // send back message hello world
    return res.send("Hello Node")
 })
 
@@ -17,5 +17,6 @@ app.get("/",(req,res)=>{
 app.get("/jobs", (req, res)=>{
     return res.send("This is a jobs endpoint")
 })
+
 // configure listening port
 app.listen(port, ()=> console.log(`Example app is listening on port ${port}`))
