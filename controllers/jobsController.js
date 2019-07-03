@@ -38,5 +38,20 @@ module.exports = {
     }, 
     findAll(req, res){
         // begin finishing here...
+
+
+        // call the find method of Job Model
+        Job.find({},(err,jobs) => {
+            // if  error occurred  send error with 404 status code
+            if(err){
+                return res.status(404).send(err)
+                console.error(err)
+            }
+            return res.status(200).json(jobs)
+        })
+
+            
+
+        // return all the jobs to the server with 200 status code
     }
 };
