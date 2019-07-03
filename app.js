@@ -47,7 +47,6 @@ app.get("/",(req,res)=>{
     return res.send("Hello Node")
 });
 
-
 // add middle ware to access custom router
 app.use('/api', routes)
 
