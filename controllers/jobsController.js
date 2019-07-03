@@ -37,21 +37,33 @@ module.exports = {
         return res.status(200).json(newJob);
     }, 
     findAll(req, res){
-        // begin finishing here...
-
 
         // call the find method of Job Model
         Job.find({},(err,jobs) => {
             // if  error occurred  send error with 404 status code
             if(err){
                 return res.status(404).send(err)
-                console.error(err)
+    
             }
             return res.status(200).json(jobs)
         })
+        
+    },
 
-            
+    find(req, res){
 
-        // return all the jobs to the server with 200 status code
+        let id = req.params.id;
+
+        if (!id){
+            res.status(400).send({err: 'id is required field'})
+        }
+
+        Job.findById(id,(err, job)=>{
+            if (err){
+                return res.status(404).send(err)
+               
+            }
+            return res.status(200).send(job)
+        })
     }
-};
+}

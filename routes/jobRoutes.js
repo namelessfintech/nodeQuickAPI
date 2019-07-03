@@ -9,6 +9,7 @@ router.get('/', jobController.findAll);
 
 router.post('/', jobController.create);
 
+router.get('/:id', jobController.find);
 
 module.exports = router;
 
